@@ -1,5 +1,5 @@
 {
-  "name": "superCell",
+  "name": "superCellStylus",
   "version": "1.0.8",
   "description": "Build system for node, express and react apps",
   "main": "gulpfile.js",
@@ -7,10 +7,10 @@
     "start": "NODE_ENV=development gulp",
     "production": "NODE_ENV=production gulp"
   },
-  "author": "Joel Longie",
+  "author": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/joellongie/superCell.git"
+    "url": "git://github.com/woogyloaf/superCellStylus.git"
   },
   "license": "ISC",
   "devDependencies": {
@@ -28,7 +28,7 @@
     "gulp-sass": "^2.0.4",
     "gulp-stylus": "^2.1.0",
     "gulp.spritesmith": "^4.1.0",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sourcemaps": "^2.1.1",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
     "lodash.assign": "^4.0.0",

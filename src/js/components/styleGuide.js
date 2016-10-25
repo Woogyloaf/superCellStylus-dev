@@ -10,7 +10,7 @@ class StyleGuide extends Component {
     const style = {
       card: {
         width: '100%',
-        background: '#fff',
+        background: '#ffffff',
         borderRadius: '5px',
         WebkitBoxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
         boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.1)',
