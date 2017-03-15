@@ -9,9 +9,9 @@ import StyleGuide from './components/styleGuide';
 import NoMatch from './components/noMatch';
 
 export default (
-  <Route path='/' component= {App}>
-    <IndexRoute component={AppIndex} />
-    <Route path='style-guide' component= {StyleGuide}/>
-    <Route path="*" component={NoMatch}/>
-  </Route>
+	<Route path='/' component= {App}>
+		<IndexRoute component={AppIndex} />
+		<Route path='style-guide' component= {StyleGuide}/>
+		<Route path="*" component={NoMatch}/>
+	</Route>
 );

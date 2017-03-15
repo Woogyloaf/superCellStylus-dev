@@ -1,6 +1,6 @@
 {
   "name": "superCellStylus",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Build system for node, express and react apps",
   "main": "gulpfile.js",
   "scripts": {
@@ -14,31 +14,31 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.17.5",
-    "browserify": "^13.1.1",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-jade": "^1.1.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^2.2.0",
-    "gulp-stylus": "^2.5.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "gulp.spritesmith": "^6.2.1",
-    "lodash.assign": "^4.2.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babelify": "*",
+    "browser-sync": "*",
+    "browserify": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-if": "*",
+    "gulp-imagemin": "*",
+    "gulp-pug": "*",
+    "gulp-sass": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-stylus": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "gulp.spritesmith": "*",
+    "lodash.assign": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*",
+    "watchify": "*"
   },
   "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-router": "^2.8.1"
+    "react": "*",
+    "react-dom": "*",
+    "react-router": "*"
   }
 }
