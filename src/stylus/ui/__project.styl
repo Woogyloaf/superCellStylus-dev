@@ -2,8 +2,29 @@
 // __PROJECT
 // ***********************************
 
-// sprite
+
+
+
+
+
+
+
+// ***********************************
+// Sprite Usage Example
+// ***********************************
 for $i in 1..4
 	.sprite-santa-{$i}
 		sprite($s-santa-claus-2)
 		background-color white - (100 / $i + 10)
+
+// ***********************************
+// Media Query Usage example
+// ***********************************
+body
+	background #9a9a9a
+	h1
+		color yellow
+	+media(tablet)
+		background yellow
+		h1
+			color #9a9a9a

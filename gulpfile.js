@@ -13,7 +13,7 @@ const browserSync		= require('browser-sync');
 var spritesmith			= require('gulp.spritesmith');
 var stylus					= require('gulp-stylus');
 var imagemin				= require('gulp-imagemin');
-var jade						= require('gulp-jade');
+var pug							= require('gulp-pug');
 
 const autoprefixer	= require('gulp-autoprefixer');
 const gulpif				= require('gulp-if');
@@ -92,13 +92,13 @@ gulp.task('html', function () {
 // ////////////////////////////////////////////////
 // Pug Tasks
 // ////////////////////////////////////////////////
-gulp.task('jade', function() {
-	return gulp.src('src/jade/*.jade')
-		.pipe(jade({pretty: true }))
+gulp.task('pug', function() {
+	return gulp.src('src/pug/*.*')
+		.pipe(pug({pretty: true }))
 		.pipe(gulp.dest('public/'))
 		.on('error', gutil.log.bind(gutil, gutil.colors.red(
 			 '\n\n*********************************** \n' +
-			'Jade ERROR:' +
+			'Pug ERROR:' +
 			'\n*********************************** \n\n'
 			)))
 		.pipe(browserSync.reload({stream:true}));
@@ -108,17 +108,17 @@ gulp.task('jade', function() {
 // ////////////////////////////////////////////////
 // Jade Tasks
 // ////////////////////////////////////////////////
-gulp.task('jade', function() {
-	return gulp.src('src/jade/*.jade')
-		.pipe(jade({pretty: true }))
-		.pipe(gulp.dest('public/'))
-		.on('error', gutil.log.bind(gutil, gutil.colors.red(
-			 '\n\n*********************************** \n' +
-			'Jade ERROR:' +
-			'\n*********************************** \n\n'
-			)))
-		.pipe(browserSync.reload({stream:true}));
-});
+// gulp.task('jade', function() {
+// 	return gulp.src('src/jade/*.jade')
+// 		.pipe(jade({pretty: true }))
+// 		.pipe(gulp.dest('public/'))
+// 		.on('error', gutil.log.bind(gutil, gutil.colors.red(
+// 			 '\n\n*********************************** \n' +
+// 			'Jade ERROR:' +
+// 			'\n*********************************** \n\n'
+// 			)))
+// 		.pipe(browserSync.reload({stream:true}));
+// });
 
 // ////////////////////////////////////////////////
 // Styles Tasks Sass
@@ -228,8 +228,8 @@ gulp.task('watch', function () {
 	// gulp.watch('src/scss/**/*.scss', ['styles']);
 	gulp.watch('src/stylus/**/*.styl', ['styles']);
 	gulp.watch('src/images/sprite/*', ['sprite']);
-	gulp.watch('src/jade/**/*.jade', ['jade']);
+	gulp.watch('src/pug/**/*.*', ['pug']);
 	gulp.watch('src/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['js','jade', 'sprite', 'imagemin', 'styles', 'browserSync', 'clean:maps', 'watch']);
+gulp.task('default', ['js','pug', 'sprite', 'imagemin', 'styles', 'browserSync', 'clean:maps', 'watch']);

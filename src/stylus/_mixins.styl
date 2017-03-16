@@ -2,7 +2,10 @@
 // MIXINS
 // ***********************************
 
-// Layput media queries
+
+// ***********************************
+// Layput Media Queries
+// ***********************************
 media_queries = {
 	mobile  : "(max-width: 600px)",
 	tablet  : "(min-width: 601px) and (max-width: 800px)",
@@ -29,7 +32,9 @@ clearfix()
 		clear both
 
 
+// ***********************************
 // Effects
+// ***********************************
 transition-all($time = 0.5s)
 	-webkit-transition: all $time ease-in-out
 	-moz-transition: all $time ease-in-out
@@ -43,7 +48,9 @@ fade($time = 0.3s)
 	-ms-transition: background-color $time ease-in-out
 	transition: background-color $time ease-in-out
 
+// ***********************************
 // Sprites
+// ***********************************
 spriteWidth($sprite)
 		width $sprite[4]
 
