@@ -14,7 +14,6 @@ var spritesmith			= require('gulp.spritesmith');
 var stylus					= require('gulp-stylus');
 var imagemin				= require('gulp-imagemin');
 var pug							= require('gulp-pug');
-
 const autoprefixer	= require('gulp-autoprefixer');
 const gulpif				= require('gulp-if');
 const del						= require('del');
@@ -87,11 +86,10 @@ gulp.task('html', function () {
 		.pipe(browserSync.reload({ stream: true }));
 });
 
-
-
 // ////////////////////////////////////////////////
 // Pug Tasks
 // ////////////////////////////////////////////////
+
 gulp.task('pug', function() {
 	return gulp.src('src/pug/*.*')
 		.pipe(pug({pretty: true }))
@@ -103,22 +101,6 @@ gulp.task('pug', function() {
 			)))
 		.pipe(browserSync.reload({stream:true}));
 });
-
-
-// ////////////////////////////////////////////////
-// Jade Tasks
-// ////////////////////////////////////////////////
-// gulp.task('jade', function() {
-// 	return gulp.src('src/jade/*.jade')
-// 		.pipe(jade({pretty: true }))
-// 		.pipe(gulp.dest('public/'))
-// 		.on('error', gutil.log.bind(gutil, gutil.colors.red(
-// 			 '\n\n*********************************** \n' +
-// 			'Jade ERROR:' +
-// 			'\n*********************************** \n\n'
-// 			)))
-// 		.pipe(browserSync.reload({stream:true}));
-// });
 
 // ////////////////////////////////////////////////
 // Styles Tasks Sass
@@ -171,7 +153,6 @@ gulp.task('styles', function () {
 .pipe(browserSync.reload({ stream: true }));
 });
 
-
 // ////////////////////////////////////////////////
 // Sprite Tasks
 // ///////////////////////////////////////////////
@@ -203,9 +184,6 @@ gulp.task('imagemin', function () {
 				.pipe(imagemin())
 				.pipe(gulp.dest('public/images'))
 });
-
-
-
 
 // ////////////////////////////////////////////////
 // Delete maps folder in production mode
