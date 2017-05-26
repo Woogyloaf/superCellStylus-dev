@@ -1,16 +1,16 @@
 {
   "name": "superCellStylus",
-  "version": "1.0.9",
+  "version": "2.0.0",
   "description": "Build system for node, express and react apps",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "NODE_ENV=development gulp",
-    "production": "NODE_ENV=production gulp"
+    "dev": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp"
   },
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/woogyloaf/superCellStylus.git"
+    "url": ""
   },
   "license": "ISC",
   "devDependencies": {
@@ -19,26 +19,27 @@
     "babelify": "*",
     "browser-sync": "*",
     "browserify": "*",
+    "cross-env": "*",
     "del": "*",
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-if": "*",
-    "gulp-imagemin": "*",
-    "gulp-pug": "*",
     "gulp-sass": "*",
-    "gulp-sourcemaps": "*",
     "gulp-stylus": "*",
+    "gulp-sourcemaps": "*",
     "gulp-uglify": "*",
     "gulp-util": "*",
-    "gulp.spritesmith": "*",
     "lodash.assign": "*",
     "vinyl-buffer": "*",
     "vinyl-source-stream": "*",
-    "watchify": "*"
+    "watchify": "*",
+    "gulp.spritesmith": "*",
+    "gulp-pug": "3.3.0",
+    "gulp-imagemin": "*"
   },
   "dependencies": {
     "react": "*",
     "react-dom": "*",
-    "react-router": "*"
+    "react-router-dom": "*"
   }
 }
