@@ -207,6 +207,7 @@ function deleteMapsFolder() {
 gulp.task('watch', function () {
   gulp.watch('public/**/*.html', ['html']);
   // gulp.watch('src/scss/**/*.scss', ['styles']);
+  gulp.watch('src/stylus/**/*.styl', ['styles']);
   gulp.watch('src/images/sprite/*', ['sprite']);
   gulp.watch('src/pug/**/*.*', ['pug']);
   gulp.watch('src/images/*', ['imagemin']);
