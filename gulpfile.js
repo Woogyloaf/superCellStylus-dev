@@ -91,16 +91,18 @@ gulp.task('html', function () {
 // ////////////////////////////////////////////////
 // Pug Tasks
 // ////////////////////////////////////////////////
+function pugError(error) {
 
+  // If you want details of the error in the console
+  console.log(error.toString())
+
+  this.emit('end')
+}
 gulp.task('pug', function() {
 	return gulp.src('src/pug/*.*')
 		.pipe(pug({pretty: true }))
+    .on('error', pugError)
 		.pipe(gulp.dest('public/'))
-		.on('error', gutil.log.bind(gutil, gutil.colors.red(
-			 '\n\n*********************************** \n' +
-			'Pug ERROR:' +
-			'\n*********************************** \n\n'
-			)))
 		.pipe(browserSync.reload({stream:true}));
 });
 
