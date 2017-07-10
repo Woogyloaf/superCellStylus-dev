@@ -215,4 +215,4 @@ gulp.task('watch', function () {
   gulp.watch('src/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['pug', 'js', 'styles','browserSync', 'clean:maps', 'watch']);
+gulp.task('default', ['pug', 'js', 'sprite', 'styles','browserSync', 'clean:maps', 'watch']);

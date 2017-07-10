@@ -17,6 +17,15 @@ for $i in 1..4
 		sprite($s-santa-claus-2)
 		background-color white - (100 / $i + 10)
 
+// .sprite-santa-1
+// 		sprite($s-santa-claus-1)
+// .sprite-santa-2
+// 		sprite($s-santa-claus-2)
+// .sprite-santa-3
+// 		sprite($s-santa-claus-3)
+// .sprite-santa-4
+// 		sprite($s-santa-claus-4)
+
 // ***********************************
 // Media Query Usage example
 // ***********************************
@@ -26,5 +35,7 @@ body
 		color yellow
 	+media(tablet)
 		background yellow
+	+media(mobile)
+		background #E74C3C
 		h1
 			color #9a9a9a

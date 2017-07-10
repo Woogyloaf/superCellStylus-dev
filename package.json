@@ -34,7 +34,7 @@
     "vinyl-source-stream": "*",
     "watchify": "*",
     "gulp.spritesmith": "*",
-    "gulp-pug": "3.3.0",
+    "gulp-pug": "*",
     "gulp-imagemin": "*"
   },
   "dependencies": {
