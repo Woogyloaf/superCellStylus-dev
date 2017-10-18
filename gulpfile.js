@@ -106,6 +106,14 @@ gulp.task('pug', function() {
 		.pipe(browserSync.reload({stream:true}));
 });
 
+// ////////////////////////////////////////////////
+// cjs Min Tasks
+// ///////////////////////////////////////////////
+
+gulp.task('cjs', function () {
+  gulp.src('src/js/custom/*')
+      .pipe(gulp.dest('public/js/custom/'))
+});
 
 // ////////////////////////////////////////////////
 // Styles Tasks  Sass
@@ -209,10 +217,11 @@ function deleteMapsFolder() {
 gulp.task('watch', function () {
   gulp.watch('public/**/*.html', ['html']);
   // gulp.watch('src/scss/**/*.scss', ['styles']);
+  gulp.watch('src/js/custom/*.*', ['cjs']);
   gulp.watch('src/stylus/**/*.styl', ['styles']);
   gulp.watch('src/images/sprite/*', ['sprite']);
   gulp.watch('src/pug/**/*.*', ['pug']);
   gulp.watch('src/images/*', ['imagemin']);
 });
 
-gulp.task('default', ['pug', 'js', 'sprite', 'styles','browserSync', 'clean:maps', 'watch']);
+gulp.task('default', ['pug', 'js', 'cjs', 'sprite', 'styles','browserSync', 'clean:maps', 'watch']);
