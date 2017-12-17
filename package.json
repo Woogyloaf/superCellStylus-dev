@@ -38,6 +38,7 @@
     "gulp-imagemin": "*"
   },
   "dependencies": {
+    "babel-core": "*",
     "react": "*",
     "react-dom": "*",
     "react-router-dom": "*"

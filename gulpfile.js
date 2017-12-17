@@ -1,23 +1,23 @@
-const watchify      = require('watchify');
-const browserify    = require('browserify');
-const gulp          = require('gulp');
-const source        = require('vinyl-source-stream');
-const buffer        = require('vinyl-buffer');
-const gutil         = require('gulp-util');
-const babelify      = require('babelify');
-const uglify        = require('gulp-uglify');
-const sourcemaps    = require('gulp-sourcemaps');
-const assign        = require('lodash.assign');
-const browserSync   = require('browser-sync');
-const sass          = require('gulp-sass');
-const autoprefixer  = require('gulp-autoprefixer');
-const gulpif        = require('gulp-if');
-const del           = require('del');
+const watchify = require('watchify');
+const browserify = require('browserify');
+const gulp = require('gulp');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const gutil = require('gulp-util');
+const babelify = require('babelify');
+const uglify = require('gulp-uglify');
+const sourcemaps = require('gulp-sourcemaps');
+const assign = require('lodash.assign');
+const browserSync = require('browser-sync');
+// const sass          = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const gulpif = require('gulp-if');
+const del = require('del');
 
-const spritesmith   = require('gulp.spritesmith');
-const stylus        = require('gulp-stylus');
-const imagemin      = require('gulp-imagemin');
-const pug						= require('gulp-pug');
+const spritesmith = require('gulp.spritesmith');
+const stylus = require('gulp-stylus');
+const imagemin = require('gulp-imagemin');
+const pug = require('gulp-pug');
 
 // setup node enviorment (development or production)
 const env = process.env.NODE_ENV;
@@ -47,10 +47,10 @@ function bundle() {
 
     // log errors if they happen
     .on('error', gutil.log.bind(gutil, gutil.colors.red(
-       '\n\n*********************************** \n' +
+      '\n\n*********************************** \n' +
       'BROWSERIFY ERROR:' +
       '\n*********************************** \n\n'
-      )))
+    )))
     .pipe(source('main.js'))
 
     // optional, remove if you don't need to buffer file contents
@@ -98,12 +98,12 @@ function pugError(error) {
 
   this.emit('end')
 }
-gulp.task('pug', function() {
-	return gulp.src('src/pug/*.*')
-		.pipe(pug({pretty: true }))
+gulp.task('pug', function () {
+  return gulp.src('src/pug/*.*')
+    .pipe(pug({ pretty: true }))
     .on('error', pugError)
-		.pipe(gulp.dest('public/'))
-		.pipe(browserSync.reload({stream:true}));
+    .pipe(gulp.dest('public/'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 // ////////////////////////////////////////////////
@@ -112,7 +112,8 @@ gulp.task('pug', function() {
 
 gulp.task('cjs', function () {
   gulp.src('src/js/custom/*')
-      .pipe(gulp.dest('public/js/custom/'))
+    .pipe(gulp.dest('public/js/custom/'))
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 // ////////////////////////////////////////////////
@@ -145,24 +146,24 @@ gulp.task('cjs', function () {
 // Styles Tasks STYL
 // ///////////////////////////////////////////////
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
   gulp.src('src/stylus/style.styl')
     .pipe(sourcemaps.init())
-       .pipe(stylus({compress: false }))
-       // .pipe(sass({outputStyle: 'compressed'}))
-      // .on('error', errorlog)
-      .on('error', gutil.log.bind(gutil, gutil.colors.red(
-         '\n\n*********************************** \n' +
-        'Stylus ERROR:' +
-        '\n*********************************** \n\n'
-        )))
-      .pipe(autoprefixer({
-              browsers: ['last 3 versions'],
-              cascade: false
-          }))
+    .pipe(stylus({ compress: false }))
+    // .pipe(sass({outputStyle: 'compressed'}))
+    // .on('error', errorlog)
+    .on('error', gutil.log.bind(gutil, gutil.colors.red(
+      '\n\n*********************************** \n' +
+      'Stylus ERROR:' +
+      '\n*********************************** \n\n'
+    )))
+    .pipe(autoprefixer({
+      browsers: ['last 3 versions'],
+      cascade: false
+    }))
     .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('public/css'))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({ stream: true }));
 });
 
 
@@ -170,22 +171,22 @@ gulp.task('styles', function() {
 // Sprite Tasks
 // ///////////////////////////////////////////////
 
-gulp.task('sprite', function() {
-    var spriteData =
-        gulp.src('./src/images/sprite/*.*') // путь, откуда берем картинки для спрайта
-            .pipe(spritesmith({
-                imgName: 'sprite.png',
-                cssName: '_sprite.styl',
-                cssFormat: 'stylus',
-                algorithm: 'binary-tree',
-                cssTemplate: 'stylus.template.mustache',
-                cssVarMap: function(sprite) {
-                    sprite.name = 's-' + sprite.name
-                }
-            }));
+gulp.task('sprite', function () {
+  var spriteData =
+    gulp.src('./src/images/sprite/*.*') // путь, откуда берем картинки для спрайта
+      .pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: '_sprite.styl',
+        cssFormat: 'stylus',
+        algorithm: 'binary-tree',
+        cssTemplate: 'stylus.template.mustache',
+        cssVarMap: function (sprite) {
+          sprite.name = 's-' + sprite.name
+        }
+      }));
 
-    spriteData.img.pipe(gulp.dest('public/images/sprite')); // путь, куда сохраняем картинку
-    spriteData.css.pipe(gulp.dest('src/stylus/')); // путь, куда сохраняем стили
+  spriteData.img.pipe(gulp.dest('public/images/sprite')); // путь, куда сохраняем картинку
+  spriteData.css.pipe(gulp.dest('src/stylus/')); // путь, куда сохраняем стили
 });
 
 // ////////////////////////////////////////////////
@@ -193,9 +194,9 @@ gulp.task('sprite', function() {
 // ///////////////////////////////////////////////
 
 gulp.task('imagemin', function () {
-    gulp.src('src/images/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('public/images'))
+  gulp.src('src/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('public/images'))
 });
 
 // ////////////////////////////////////////////////
@@ -219,9 +220,10 @@ gulp.task('watch', function () {
   // gulp.watch('src/scss/**/*.scss', ['styles']);
   gulp.watch('src/js/custom/*.*', ['cjs']);
   gulp.watch('src/stylus/**/*.styl', ['styles']);
-  gulp.watch('src/images/sprite/*', ['sprite']);
+  gulp.watch('src/images/sprite/*.*', ['sprite']);
   gulp.watch('src/pug/**/*.*', ['pug']);
-  gulp.watch('src/images/*', ['imagemin']);
+  gulp.watch('src/images/**', ['imagemin']);
 });
 
-gulp.task('default', ['pug', 'js', 'cjs', 'sprite', 'styles','browserSync', 'clean:maps', 'watch']);
+
+gulp.task('default', ['pug', 'js', 'cjs', 'imagemin', 'sprite', 'styles', 'browserSync', 'clean:maps', 'watch']);
